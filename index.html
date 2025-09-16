@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulário - Atividade LPW2</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="color-scheme" content="light dark" />
+</head>
+<body>
+  <main class="pagina">
+    <section class="cartao" aria-labelledby="titulo-formulario">
+      <header class="cabecalho">
+        <h1 id="titulo-formulario">Cadastro</h1>
+        <p class="descricao">Preencha seus dados corretamente e envie o formulário.</p>
+      </header>
+
+      <form id="form-cadastro" class="formulario" novalidate>
+        <fieldset class="grupo" aria-describedby="ajuda-identificacao">
+          <legend>Identificação</legend>
+          <p id="ajuda-identificacao" class="ajuda">Informe seu nome completo e email de contato.</p>
+
+          <div class="grupo-campo">
+            <label class="rotulo" for="nome">Nome</label>
+            <input 
+              id="nome" 
+              name="nome" 
+              type="text" 
+              class="entrada obrigatorio regra-nome" 
+              placeholder="Seu nome completo" 
+              autocomplete="name" 
+              minlength="3"
+              data-campo 
+              data-regras="obrigatorio,nome"
+              aria-describedby="erro-nome"
+              required
+            />
+            <small class="mensagem-erro" id="erro-nome"></small>
+          </div>
+
+          <div class="grupo-campo">
+            <label class="rotulo" for="email">Email</label>
+            <input 
+              id="email" 
+              name="email" 
+              type="email" 
+              class="entrada obrigatorio regra-email" 
+              placeholder="seuemail@exemplo.com" 
+              autocomplete="email" 
+              data-campo 
+              data-regras="obrigatorio,email"
+              aria-describedby="erro-email"
+              required
+            />
+            <small class="mensagem-erro" id="erro-email"></small>
+          </div>
+        </fieldset>
+
+        <fieldset class="grupo" aria-describedby="ajuda-contato">
+          <legend>Contato e Documentos</legend>
+          <p id="ajuda-contato" class="ajuda">Preencha telefone, CPF e sua data de nascimento.</p>
+
+          <div class="grupo-campo">
+            <label class="rotulo" for="telefone">Telefone</label>
+            <input 
+              id="telefone" 
+              name="telefone" 
+              type="tel" 
+              inputmode="tel" 
+              class="entrada obrigatorio mascara-telefone regra-telefone" 
+              placeholder="(99) 99999-9999" 
+              data-campo 
+              data-mascara="telefone" 
+              data-regras="obrigatorio,telefone"
+              aria-describedby="erro-telefone"
+              required
+            />
+            <small class="mensagem-erro" id="erro-telefone"></small>
+          </div>
+
+          <div class="grupo-campo">
+            <label class="rotulo" for="cpf">CPF</label>
+            <input 
+              id="cpf" 
+              name="cpf" 
+              type="text" 
+              inputmode="numeric" 
+              class="entrada obrigatorio mascara-cpf regra-cpf" 
+              placeholder="000.000.000-00" 
+              data-campo 
+              data-mascara="cpf" 
+              data-regras="obrigatorio,cpf"
+              aria-describedby="erro-cpf"
+              required
+            />
+            <small class="mensagem-erro" id="erro-cpf"></small>
+          </div>
+
+          <div class="grupo-campo">
+            <label class="rotulo" for="nascimento">Data de Nascimento</label>
+            <input 
+              id="nascimento" 
+              name="nascimento" 
+              type="text" 
+              inputmode="numeric" 
+              class="entrada obrigatorio mascara-data maior-de-idade" 
+              placeholder="dd/mm/aaaa" 
+              data-campo 
+              data-mascara="data" 
+              data-regras="obrigatorio,maior-de-idade"
+              aria-describedby="erro-nascimento"
+              required
+            />
+            <small class="mensagem-erro" id="erro-nascimento"></small>
+          </div>
+        </fieldset>
+
+        <div class="acoes">
+          <button class="botao" type="submit">Enviar</button>
+          <p id="mensagem-sucesso" class="aviso-sucesso" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="script.js" type="module"></script>
+</body>
+</html>
